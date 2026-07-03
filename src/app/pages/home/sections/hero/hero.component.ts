@@ -15,12 +15,14 @@ export class Hero {
     { value: '100%', label: 'Compromiso' },
   ];
 
-  protected readonly clients = [
-    'Provías Nacional',
-    'ANA',
-    'Meta Engineering',
-    'Intersur',
-    'Norvial',
-    'MTC',
+  private readonly clientLogos = [
+    'client1.png',
+    'client2.png',
+    'client3.png',
+    'client4.png',
+    'client5.png',
+    'client6.png',
   ];
+
+  protected readonly clientLogosLoop = [...this.clientLogos, ...this.clientLogos];
 }

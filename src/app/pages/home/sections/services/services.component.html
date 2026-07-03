@@ -11,10 +11,10 @@
     <!-- Lista de servicios -->
     <div class="space-y-3">
       @for (service of services; track service.num) {
-        <div class="rounded-2xl border transition-all duration-300"
+        <div class="rounded-2xl border transition-all duration-300 shadow-sm"
           [class]="expandedNum() === service.num
-            ? 'border-teal-500/50 bg-slate-900'
-            : 'border-slate-800 bg-slate-900/50 hover:border-slate-700 hover:bg-slate-900'">
+            ? 'border-teal-400 bg-white shadow-md'
+            : 'border-slate-200 bg-white hover:border-teal-300 hover:shadow-md'">
 
           <!-- Fila principal -->
           <div class="flex flex-col sm:flex-row sm:items-center gap-5 px-6 py-5 cursor-pointer select-none"
@@ -22,41 +22,41 @@
 
             <!-- Número -->
             <span class="shrink-0 text-3xl font-black w-12 select-none transition-colors"
-              [class]="expandedNum() === service.num ? 'text-teal-900' : 'text-slate-800'">
+              [class]="expandedNum() === service.num ? 'text-teal-200' : 'text-slate-200'">
               {{ service.num }}
             </span>
 
             <!-- Icono -->
             <div class="shrink-0 flex h-12 w-12 items-center justify-center rounded-xl text-xl transition-all duration-300"
-              [class]="expandedNum() === service.num ? 'bg-teal-600/20 scale-110' : 'bg-slate-800'">
+              [class]="expandedNum() === service.num ? 'bg-teal-100 scale-110' : 'bg-teal-50'">
               {{ service.icon }}
             </div>
 
             <!-- Contenido -->
             <div class="flex-1 min-w-0">
               <div class="flex flex-wrap items-center gap-2">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-white">{{ service.title }}</h3>
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900">{{ service.title }}</h3>
                 @if (service.nuevo) {
                   <span class="rounded-full bg-gradient-to-r from-teal-400 to-cyan-300 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-widest text-slate-900">
                     Nuevo
                   </span>
                 }
                 @if (service.detail) {
-                  <span class="rounded-full border border-teal-500/30 px-2.5 py-0.5 text-[10px] font-semibold text-teal-500 tracking-widest">
+                  <span class="rounded-full border border-teal-300 bg-teal-50 px-2.5 py-0.5 text-[10px] font-semibold text-teal-600 tracking-widest">
                     Ver detalle
                   </span>
                 }
               </div>
-              <p class="mt-1 text-sm text-slate-400 leading-relaxed">{{ service.description }}</p>
+              <p class="mt-1 text-sm text-slate-500 leading-relaxed">{{ service.description }}</p>
             </div>
 
             <!-- Tech + flecha -->
             <div class="shrink-0 flex items-center gap-3">
-              <span class="hidden sm:inline-flex items-center rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-[10px] font-semibold tracking-widest text-teal-500 uppercase whitespace-nowrap">
+              <span class="hidden sm:inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-[10px] font-semibold tracking-widest text-teal-600 uppercase whitespace-nowrap">
                 {{ service.tech }}
               </span>
               @if (service.detail) {
-                <span class="flex h-7 w-7 items-center justify-center rounded-full border border-slate-700 text-slate-400 text-xs transition-transform duration-300"
+                <span class="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-slate-400 text-xs transition-transform duration-300"
                   [class.rotate-180]="expandedNum() === service.num">
                   ▾
                 </span>
@@ -66,9 +66,9 @@
 
           <!-- Panel expandible -->
           @if (service.detail && expandedNum() === service.num) {
-            <div class="border-t border-slate-800 px-6 pb-8 pt-6 space-y-8">
+            <div class="border-t border-slate-100 px-6 pb-8 pt-6 space-y-8">
 
-              <p class="text-sm text-slate-300 leading-relaxed max-w-3xl" [innerHTML]="service.detail.intro"></p>
+              <p class="text-sm text-slate-600 leading-relaxed max-w-3xl" [innerHTML]="service.detail.intro"></p>
 
               @if (service.detail.aplicaciones) {
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -77,25 +77,25 @@
                     <ul class="space-y-4">
                       @for (app of service.detail.aplicaciones; track app.titulo) {
                         <li class="flex items-start gap-3">
-                          <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded border border-teal-500/40 text-teal-400 text-xs">◇</span>
+                          <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded border border-teal-300 bg-teal-50 text-teal-600 text-xs">◇</span>
                           <div>
-                            <p class="text-sm font-semibold text-white">{{ app.titulo }}</p>
-                            <p class="text-xs text-slate-400 mt-0.5">{{ app.desc }}</p>
+                            <p class="text-sm font-semibold text-slate-800">{{ app.titulo }}</p>
+                            <p class="text-xs text-slate-500 mt-0.5">{{ app.desc }}</p>
                           </div>
                         </li>
                       }
                     </ul>
                   </div>
                   @if (service.detail.proyecto) {
-                    <div class="rounded-xl border border-teal-500/20 bg-slate-950/60 p-6">
-                      <p class="text-[10px] font-black uppercase tracking-[0.2em] text-teal-400 flex items-center gap-1.5">★ Proyecto Destacado</p>
-                      <p class="mt-3 text-lg font-bold text-white">{{ service.detail.proyecto.nombre }}</p>
+                    <div class="rounded-xl border border-teal-200 bg-teal-50 p-6">
+                      <p class="text-[10px] font-black uppercase tracking-[0.2em] text-teal-600 flex items-center gap-1.5">★ Proyecto Destacado</p>
+                      <p class="mt-3 text-lg font-bold text-slate-900">{{ service.detail.proyecto.nombre }}</p>
                       <p class="text-[10px] font-semibold tracking-widest text-slate-500 uppercase mt-1">{{ service.detail.proyecto.lugar }}</p>
-                      <p class="mt-3 text-xs text-slate-400 leading-relaxed">{{ service.detail.proyecto.desc }}</p>
+                      <p class="mt-3 text-xs text-slate-600 leading-relaxed">{{ service.detail.proyecto.desc }}</p>
                       <div class="mt-5 flex items-center gap-8">
                         @for (stat of service.detail.proyecto.stats; track stat.label) {
                           <div>
-                            <p class="text-2xl font-extrabold text-white">{{ stat.valor }}</p>
+                            <p class="text-2xl font-extrabold text-slate-900">{{ stat.valor }}</p>
                             <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-0.5">{{ stat.label }}</p>
                           </div>
                         }
@@ -110,10 +110,10 @@
                   <p class="text-[10px] font-black uppercase tracking-[0.25em] text-teal-500 mb-6">Campos de Aplicación Crítica</p>
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
                     @for (campo of service.detail.camposAplicacion; track campo.titulo) {
-                      <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-5 hover:border-teal-500/30 transition-colors">
+                      <div class="rounded-xl border border-slate-200 bg-slate-50 p-5 hover:border-teal-300 hover:bg-teal-50 transition-colors">
                         <span class="text-2xl">{{ campo.icono }}</span>
-                        <p class="mt-3 text-sm font-bold text-white">{{ campo.titulo }}</p>
-                        <p class="mt-1 text-xs text-slate-400 leading-relaxed">{{ campo.desc }}</p>
+                        <p class="mt-3 text-sm font-bold text-slate-900">{{ campo.titulo }}</p>
+                        <p class="mt-1 text-xs text-slate-500 leading-relaxed">{{ campo.desc }}</p>
                       </div>
                     }
                   </div>
@@ -121,11 +121,11 @@
               }
 
               @if (service.detail.ventaja) {
-                <div class="rounded-xl border border-teal-500/30 bg-teal-950/40 px-6 py-5 flex items-start gap-4">
-                  <span class="shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold">✓</span>
+                <div class="rounded-xl border border-teal-200 bg-teal-50 px-6 py-5 flex items-start gap-4">
+                  <span class="shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-teal-100 text-teal-600 text-xs font-bold">✓</span>
                   <div>
-                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-teal-400 mb-1">Ventaja en Gabinete</p>
-                    <p class="text-sm text-slate-300" [innerHTML]="service.detail.ventaja"></p>
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-teal-600 mb-1">Ventaja en Gabinete</p>
+                    <p class="text-sm text-slate-600" [innerHTML]="service.detail.ventaja"></p>
                   </div>
                 </div>
               }
@@ -135,9 +135,9 @@
                   <p class="text-[10px] font-black uppercase tracking-[0.25em] text-teal-500 mb-5">Indicadores de Precisión</p>
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     @for (ind of service.detail.indicadores; track ind.titulo) {
-                      <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-5">
-                        <p class="text-base font-extrabold text-teal-400">{{ ind.titulo }}</p>
-                        <p class="mt-2 text-xs text-slate-400 leading-relaxed" [innerHTML]="ind.desc"></p>
+                      <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                        <p class="text-base font-extrabold text-teal-600">{{ ind.titulo }}</p>
+                        <p class="mt-2 text-xs text-slate-500 leading-relaxed" [innerHTML]="ind.desc"></p>
                       </div>
                     }
                   </div>
@@ -150,9 +150,9 @@
                   <ul class="space-y-3">
                     @for (ent of service.detail.entregables; track ent.formato) {
                       <li class="flex items-start gap-3">
-                        <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded border border-slate-700 text-slate-500 text-xs">▣</span>
+                        <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded border border-slate-200 bg-slate-50 text-slate-500 text-xs">▣</span>
                         <div>
-                          <p class="text-sm font-semibold text-white">{{ ent.formato }}</p>
+                          <p class="text-sm font-semibold text-slate-800">{{ ent.formato }}</p>
                           <p class="text-xs text-slate-500">{{ ent.ext }}</p>
                         </div>
                       </li>
@@ -166,13 +166,13 @@
                   <p class="text-[10px] font-black uppercase tracking-[0.25em] text-teal-500 mb-6">Flujo Metodológico · Paso a Paso</p>
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
                     @for (paso of service.detail.flujoMetodologico; track paso.num) {
-                      <div class="rounded-xl border border-slate-800 bg-slate-950/60 overflow-hidden">
-                        <div class="relative flex h-44 w-full items-center justify-center bg-slate-800/60">
-                          <span class="absolute top-3 left-3 flex h-8 w-8 items-center justify-center rounded-lg bg-teal-500 text-xs font-black text-slate-900">{{ paso.num }}</span>
+                      <div class="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+                        <div class="relative flex h-44 w-full items-center justify-center bg-slate-100">
+                          <span class="absolute top-3 left-3 flex h-8 w-8 items-center justify-center rounded-lg bg-teal-500 text-xs font-black text-white">{{ paso.num }}</span>
                           @if (paso.imagen) {
                             <img [src]="paso.imagen" [alt]="paso.titulo" class="h-full w-full object-cover" />
                           } @else {
-                            <div class="flex flex-col items-center gap-2 text-slate-600">
+                            <div class="flex flex-col items-center gap-2 text-slate-400">
                               <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                   d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -182,8 +182,8 @@
                           }
                         </div>
                         <div class="p-5">
-                          <p class="text-sm font-bold text-white">{{ paso.titulo }}</p>
-                          <p class="mt-1 text-xs text-slate-400 leading-relaxed">{{ paso.desc }}</p>
+                          <p class="text-sm font-bold text-slate-900">{{ paso.titulo }}</p>
+                          <p class="mt-1 text-xs text-slate-500 leading-relaxed">{{ paso.desc }}</p>
                         </div>
                       </div>
                     }
@@ -196,11 +196,11 @@
                   <p class="text-[10px] font-black uppercase tracking-[0.25em] text-teal-500 mb-5">Indicadores y Entregables</p>
                   <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     @for (ind of service.detail.indicadoresEntregables; track ind.titulo) {
-                      <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-5 hover:border-teal-500/30 transition-colors">
+                      <div class="rounded-xl border border-slate-200 bg-slate-50 p-5 hover:border-teal-300 hover:bg-teal-50 transition-colors">
                         <span class="text-2xl">{{ ind.icono }}</span>
-                        <p class="mt-3 text-sm font-bold text-white leading-tight">{{ ind.titulo }}</p>
+                        <p class="mt-3 text-sm font-bold text-slate-900 leading-tight">{{ ind.titulo }}</p>
                         @if (ind.sub) {
-                          <p class="mt-1 text-[10px] font-semibold text-teal-500 tracking-wider">{{ ind.sub }}</p>
+                          <p class="mt-1 text-[10px] font-semibold text-teal-600 tracking-wider">{{ ind.sub }}</p>
                         }
                       </div>
                     }
@@ -213,22 +213,22 @@
                   @for (punto of service.detail.bulletPoints; track punto) {
                     <li class="flex items-start gap-3">
                       <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-teal-400"></span>
-                      <p class="text-sm font-semibold text-white">{{ punto }}</p>
+                      <p class="text-sm font-semibold text-slate-800">{{ punto }}</p>
                     </li>
                   }
                 </ul>
               }
 
               @if (!service.detail.aplicaciones && service.detail.proyecto && !service.detail.flujoMetodologico) {
-                <div class="rounded-xl border border-teal-500/20 bg-slate-950/60 p-6">
-                  <p class="text-[10px] font-black uppercase tracking-[0.2em] text-teal-400 flex items-center gap-1.5">★ Proyecto Destacado</p>
-                  <p class="mt-3 text-lg font-bold text-white">{{ service.detail.proyecto.nombre }}</p>
+                <div class="rounded-xl border border-teal-200 bg-teal-50 p-6">
+                  <p class="text-[10px] font-black uppercase tracking-[0.2em] text-teal-600 flex items-center gap-1.5">★ Proyecto Destacado</p>
+                  <p class="mt-3 text-lg font-bold text-slate-900">{{ service.detail.proyecto.nombre }}</p>
                   <p class="text-[10px] font-semibold tracking-widest text-slate-500 uppercase mt-1">{{ service.detail.proyecto.lugar }}</p>
-                  <p class="mt-3 text-xs text-slate-400 leading-relaxed">{{ service.detail.proyecto.desc }}</p>
+                  <p class="mt-3 text-xs text-slate-600 leading-relaxed">{{ service.detail.proyecto.desc }}</p>
                   <div class="mt-5 flex items-center gap-8">
                     @for (stat of service.detail.proyecto.stats; track stat.label) {
                       <div>
-                        <p class="text-2xl font-extrabold text-white">{{ stat.valor }}</p>
+                        <p class="text-2xl font-extrabold text-slate-900">{{ stat.valor }}</p>
                         <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-0.5">{{ stat.label }}</p>
                       </div>
                     }
@@ -239,11 +239,11 @@
               @if (service.detail.proyectosDestacados) {
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   @for (proy of service.detail.proyectosDestacados; track proy.nombre) {
-                    <div class="rounded-xl border border-teal-500/20 bg-slate-950/60 p-6">
-                      <p class="text-[10px] font-black uppercase tracking-[0.2em] text-teal-400 flex items-center gap-1.5">★ Proyecto Destacado</p>
-                      <p class="mt-3 text-base font-bold text-white leading-snug">{{ proy.nombre }}</p>
+                    <div class="rounded-xl border border-teal-200 bg-teal-50 p-6">
+                      <p class="text-[10px] font-black uppercase tracking-[0.2em] text-teal-600 flex items-center gap-1.5">★ Proyecto Destacado</p>
+                      <p class="mt-3 text-base font-bold text-slate-900 leading-snug">{{ proy.nombre }}</p>
                       <p class="text-[10px] font-semibold tracking-widest text-slate-500 uppercase mt-1">{{ proy.lugar }}</p>
-                      <p class="mt-3 text-xs text-slate-400 leading-relaxed">{{ proy.desc }}</p>
+                      <p class="mt-3 text-xs text-slate-600 leading-relaxed">{{ proy.desc }}</p>
                     </div>
                   }
                 </div>
@@ -254,10 +254,10 @@
                   <p class="text-[10px] font-black uppercase tracking-[0.25em] text-teal-500 mb-5">Características del Servicio</p>
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     @for (car of service.detail.caracteristicas; track car.titulo) {
-                      <div class="rounded-xl border border-teal-500/20 bg-slate-950/60 p-6 hover:border-teal-500/50 transition-colors">
-                        <p class="text-sm font-extrabold uppercase tracking-wider text-white">{{ car.titulo }}</p>
-                        <div class="mt-2 h-px w-10 bg-teal-500/50 rounded-full"></div>
-                        <p class="mt-3 text-xs text-slate-400 leading-relaxed">{{ car.desc }}</p>
+                      <div class="rounded-xl border border-slate-200 bg-slate-50 p-6 hover:border-teal-300 hover:bg-teal-50 transition-colors">
+                        <p class="text-sm font-extrabold uppercase tracking-wider text-slate-900">{{ car.titulo }}</p>
+                        <div class="mt-2 h-px w-10 bg-teal-400 rounded-full"></div>
+                        <p class="mt-3 text-xs text-slate-500 leading-relaxed">{{ car.desc }}</p>
                       </div>
                     }
                   </div>
@@ -272,13 +272,13 @@
     </div>
 
     <!-- Banner cumplimiento normativo -->
-    <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-5 rounded-2xl bg-gradient-to-r from-teal-950/80 to-cyan-950/80 border border-teal-500/20 px-7 py-6">
-      <div class="shrink-0 flex h-10 w-10 items-center justify-center rounded-full bg-teal-500/20 text-teal-400 text-lg font-bold">✓</div>
+    <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-5 rounded-2xl bg-teal-50 border border-teal-200 px-7 py-6">
+      <div class="shrink-0 flex h-10 w-10 items-center justify-center rounded-full bg-teal-100 text-teal-600 text-lg font-bold">✓</div>
       <div>
-        <p class="text-xs font-black uppercase tracking-[0.2em] text-teal-400">Cumplimiento Normativo Garantizado</p>
-        <p class="mt-1 text-sm text-slate-400">
+        <p class="text-xs font-black uppercase tracking-[0.2em] text-teal-700">Cumplimiento Normativo Garantizado</p>
+        <p class="mt-1 text-sm text-slate-600">
           Bajo la NTC-001-2015 y la Ley N.° 30340. Generamos planos compatibles con los procedimientos de
-          <strong class="text-slate-200">SUNARP, Gobiernos Regionales y Municipalidades.</strong>
+          <strong class="text-slate-800">SUNARP, Gobiernos Regionales y Municipalidades.</strong>
         </p>
       </div>
     </div>

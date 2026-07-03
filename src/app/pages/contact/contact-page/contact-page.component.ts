@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Appointment } from '../../home/sections/appointment/appointment.component';
+import { Appointment } from '../../home/sections/contact/contact.component';
 
 @Component({
   selector: 'app-contact-page',
