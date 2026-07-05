@@ -1,47 +1,25 @@
-<footer class="relative bg-slate-950 text-slate-400 overflow-hidden">
+<footer class="relative bg-[#0a1628] text-slate-400 overflow-hidden">
 
-  <!-- Fondo decorativo -->
-  <div class="pointer-events-none absolute inset-0">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[900px] rounded-full bg-teal-500/5 blur-3xl"></div>
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]"></div>
-  </div>
-
-  <!-- Línea acento superior -->
   <div class="h-px w-full bg-gradient-to-r from-transparent via-teal-500/50 to-transparent"></div>
 
   <div class="relative mx-auto max-w-7xl px-6 pt-16 pb-10">
 
-    <!-- Grid principal -->
     <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
 
       <!-- Brand -->
       <div class="lg:col-span-1">
         <a routerLink="/">
-          <img src="logo.svg" alt="Goting" class="h-14 w-2xl object-contain rounded-xl bg-white px-2 py-1" />
+          <img src="/goting.svg" alt="Goting" class="h-14 w-auto object-contain brightness-0 invert" />
         </a>
         <p class="mt-4 text-sm leading-relaxed text-slate-400">
           Empresa peruana especializada en Topografía, Geodesia Oficial, Fotogrametría UAV y Consultoría Geomática.
         </p>
-
-        <!-- Info rápida -->
         <div class="mt-5 space-y-2 text-xs text-slate-500">
-          <div class="flex items-center gap-2">
-            <span class="text-teal-500">◈</span> RUC: 20615434869
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-teal-500">◈</span> Cobertura Nacional · Perú
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-teal-500">◈</span>
-            <a href="tel:+51942678678" class="hover:text-teal-400 transition-colors">+51 942 678 678</a>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-teal-500">◈</span>
-            <a href="mailto:consultas.goting@gmail.com" class="hover:text-teal-400 transition-colors">consultas.goting&#64;gmail.com</a>
-          </div>
+          <div class="flex items-center gap-2"><span class="text-teal-500">◈</span> RUC: 20615434869</div>
+          <div class="flex items-center gap-2"><span class="text-teal-500">◈</span> Cobertura Nacional · Perú</div>
+          <div class="flex items-center gap-2"><span class="text-teal-500">◈</span><a href="tel:+51942678678" class="hover:text-teal-400 transition-colors">+51 942 678 678</a></div>
+          <div class="flex items-center gap-2"><span class="text-teal-500">◈</span><a href="mailto:consultas.goting@gmail.com" class="hover:text-teal-400 transition-colors">consultas.goting&#64;gmail.com</a></div>
         </div>
-
-        <!-- Redes sociales -->
         <div class="mt-6 flex items-center gap-3">
           <a href="https://www.facebook.com/profile.php?id=61586397540144" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
             class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-800/60 hover:border-teal-500 hover:bg-teal-500/10 hover:text-teal-400 transition-all">
@@ -62,36 +40,11 @@
       <div>
         <h4 class="text-xs font-black uppercase tracking-[0.2em] text-white mb-5">Enlaces</h4>
         <ul class="space-y-3 text-sm">
-          <li>
-            <a routerLink="/" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Inicio
-            </a>
-          </li>
-          <li>
-            <a routerLink="/nosotros" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Nosotros
-            </a>
-          </li>
-          <li>
-            <a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Servicios
-            </a>
-          </li>
-          <li>
-            <a routerLink="/equipo" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Equipo
-            </a>
-          </li>
-          <li>
-            <a routerLink="/contacto" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Contacto
-            </a>
-          </li>
+          <li><a routerLink="/" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Inicio</a></li>
+          <li><a routerLink="/nosotros" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Nosotros</a></li>
+          <li><a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Servicios</a></li>
+          <li><a routerLink="/equipo" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Equipo</a></li>
+          <li><a routerLink="/contacto" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Contacto</a></li>
         </ul>
       </div>
 
@@ -99,48 +52,12 @@
       <div>
         <h4 class="text-xs font-black uppercase tracking-[0.2em] text-white mb-5">Servicios</h4>
         <ul class="space-y-3 text-sm">
-          <li>
-            <a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Fotogrametría Aérea
-            </a>
-          </li>
-          <li>
-            <a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Batimetría y Caudales
-            </a>
-          </li>
-          <li>
-            <a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Topografía LiDAR
-            </a>
-          </li>
-          <li>
-            <a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Agricultura de Precisión
-            </a>
-          </li>
-          <li>
-            <a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Geodesia Oficial
-            </a>
-          </li>
-          <li>
-            <a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Topografía de Detalle
-            </a>
-          </li>
-          <li>
-            <a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors">
-              <span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>
-              Alquiler y Capacitación
-            </a>
-          </li>
+          <li><a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Fotogrametría Aérea</a></li>
+          <li><a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Batimetría y Caudales</a></li>
+          <li><a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Topografía LiDAR</a></li>
+          <li><a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Agricultura de Precisión</a></li>
+          <li><a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Geodesia Oficial</a></li>
+          <li><a routerLink="/servicios" class="group flex items-center gap-2 hover:text-teal-400 transition-colors"><span class="h-px w-3 bg-teal-500/40 group-hover:w-5 group-hover:bg-teal-400 transition-all duration-300"></span>Topografía de Detalle</a></li>
         </ul>
       </div>
 
@@ -150,12 +67,9 @@
         <div class="overflow-hidden rounded-xl border border-slate-700/60 shadow-lg shadow-black/30">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.4!2d-77.0428!3d-12.0464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b5d35662bf%3A0x28b0f08461c63c6e!2sLima%2C%20Per%C3%BA!5e0!3m2!1ses!2spe!4v1700000000000"
-            width="100%"
-            height="180"
+            width="100%" height="180"
             style="border:0; display:block; filter: grayscale(0.3) contrast(1.1);"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
         <div class="mt-3 flex items-start gap-2 text-xs text-slate-500">
@@ -166,10 +80,8 @@
 
     </div>
 
-    <!-- Divider -->
     <div class="mt-14 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
 
-    <!-- Bottom bar -->
     <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
       <p>&copy; {{ year }} <span class="text-slate-400 font-semibold">GOTING E.I.R.L.</span> · Ingeniería Topográfica, Geodesia, Fotogrametría y Soluciones Geoespaciales.</p>
       <div class="flex items-center gap-6">

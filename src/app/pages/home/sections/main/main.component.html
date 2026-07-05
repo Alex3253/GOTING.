@@ -1,70 +1,77 @@
-<section
-  id="hero"
-  class="relative flex min-h-screen flex-col justify-between overflow-hidden"
-  style="background-image: url('/topografia.png'); background-size: cover; background-position: center;"
->
-  <!-- Overlay oscuro degradado -->
-  <div class="absolute inset-0 bg-linear-to-r from-slate-950/90 via-slate-900/75 to-slate-900/40"></div>
+<section id="hero" class="relative -mt-20 flex min-h-screen flex-col justify-between overflow-hidden bg-[#0a1628]">
 
-  <!-- Contenido principal -->
-  <div class="relative z-10 mx-auto w-full max-w-7xl flex-1 px-6 pt-32 pb-16 flex flex-col justify-center">
-    <!-- Badge -->
-    <span class="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm">
-      <span class="h-2 w-2 rounded-full bg-orange-400"></span>
-      Ingeniería Civil de Excelencia
-    </span>
+  <div class="absolute inset-0">
+    @for (img of heroImages; track $index) {
+      <img [src]="img" alt=""
+        class="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out"
+        [class.opacity-60]="activeSlide() === $index"
+        [class.opacity-0]="activeSlide() !== $index" />
+    }
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0a1628]/75 via-[#0a1628]/45 to-[#0a1628]/15"></div>
+  </div>
 
-    <!-- Título -->
-    <h1 class="max-w-3xl text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
-      Ingeniería
-      <span class="text-orange-400">especializada</span>
-      y soluciones Geoespaciales
+  <div class="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+    @for (img of heroImages; track $index) {
+      <button type="button" aria-label="Ir a la imagen {{ $index + 1 }}" (click)="goToSlide($index)"
+        class="h-1.5 rounded-full transition-all duration-300"
+        [class.w-6]="activeSlide() === $index" [class.bg-teal-400]="activeSlide() === $index"
+        [class.w-1.5]="activeSlide() !== $index" [class.bg-white/40]="activeSlide() !== $index">
+      </button>
+    }
+  </div>
+
+  <div class="relative z-10 mx-auto w-full max-w-7xl flex-1 px-6 pt-28 pb-16 flex flex-col justify-center">
+
+    <div class="reveal flex items-center gap-3 mb-8">
+      <span class="h-px w-10 bg-teal-400"></span>
+      <span class="text-xs font-bold tracking-[0.3em] text-teal-300 uppercase">Ingeniería Civil de Excelencia</span>
+    </div>
+
+    <h1 class="reveal reveal-d1 text-5xl sm:text-7xl lg:text-[6.5rem] font-black leading-[0.95] text-white tracking-tight">
+      Ingeniería<br />
+      <span class="text-teal-400">especializada</span><br />
+      <span class="text-slate-300">y Geoespacial</span>
     </h1>
 
-    <!-- Subtítulo -->
-    <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
-      Alta precisión para infraestructura, construcción, agricultura, minería, telecomunicaciones,
-      energía renovable e industria.
+    <div class="reveal reveal-d2 mt-10 h-px w-20 bg-teal-500/40"></div>
+
+    <p class="reveal reveal-d2 mt-6 max-w-lg text-base leading-relaxed text-slate-300">
+      Alta precisión para infraestructura, construcción, agricultura, minería,
+      telecomunicaciones, energía renovable e industria.
     </p>
 
-    <!-- CTAs -->
-    <div class="mt-10 flex flex-wrap items-center gap-4">
-      <a
-        routerLink="/servicios"
-        class="inline-flex items-center gap-2 rounded-full border-2 border-white px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-slate-900"
-      >
+    <div class="reveal reveal-d3 mt-10 flex flex-wrap items-center gap-4">
+      <a routerLink="/servicios"
+        class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
         Ver Servicios →
       </a>
-      <a
-        routerLink="/contacto"
-        class="inline-flex items-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-orange-900/40 transition-colors hover:bg-orange-400"
-      >
+      <a routerLink="/contacto"
+        class="inline-flex items-center gap-2 rounded-full bg-teal-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition-all duration-300">
         Nuestros Proyectos
       </a>
     </div>
 
-    <!-- Stats -->
-    <div class="mt-16 flex flex-wrap items-center gap-10 lg:gap-16">
+    <div class="reveal reveal-d4 mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 border-t border-white/10 pt-10">
       @for (stat of stats; track stat.label) {
         <div>
-          <p class="text-4xl font-bold text-white">{{ stat.value }}</p>
-          <p class="mt-1 text-sm text-slate-400">{{ stat.label }}</p>
+          <p class="text-4xl lg:text-5xl font-black text-white">{{ stat.value }}</p>
+          <p class="mt-1.5 text-[10px] font-semibold tracking-[0.25em] text-slate-400 uppercase">{{ stat.label }}</p>
         </div>
       }
     </div>
   </div>
 
-  <!-- Carrusel de clientes -->
-  <div class="relative z-10 bg-transparent py-5">
-    <div class="mx-auto max-w-5xl py-3"
-      style="mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);">
-      <div class="flex animate-marquee gap-20 w-max items-center">
-        @for (img of clientLogosLoop; track $index) {
-          <img [src]="img" alt="cliente"
-            class="h-10 w-auto max-w-[140px] object-contain shrink-0 grayscale hover:opacity-100 hover:grayscale-0 hover:scale-200 transition-all duration-300"
-            style="mix-blend-mode: multiply;" />
-        }
-      </div>
-    </div>
-  </div>
+<!--  <div class="relative z-10 border-t border-white/10 py-5 bg-[#071120]/80 backdrop-blur-sm">-->
+<!--    <div class="mx-auto max-w-5xl py-3"-->
+<!--      style="mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);-->
+<!--             -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);">-->
+<!--      <div class="flex animate-marquee gap-20 w-max items-center">-->
+<!--        @for (img of clientLogosLoop; track $index) {-->
+<!--          <img [src]="img" alt="cliente"-->
+<!--            class="h-9 w-auto max-w-[130px] object-contain shrink-0 brightness-0 invert opacity-40 hover:opacity-80 transition-all duration-300"-->
+<!--          />-->
+<!--        }-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 </section>

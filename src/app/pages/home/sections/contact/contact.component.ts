@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 
@@ -11,6 +11,7 @@ emailjs.init({ publicKey: 'QgNgViSoAjj4JMx01' });
   styleUrl: './contact.component.css',
 })
 export class Appointment {
+  showHeading = input(true);
 
   protected nombre   = '';
   protected telefono = '';

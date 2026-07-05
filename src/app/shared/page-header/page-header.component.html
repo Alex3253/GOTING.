@@ -1,0 +1,43 @@
+<section class="relative flex min-h-[calc(100vh-5rem)] flex-col justify-end overflow-hidden bg-[#0a1628] pt-20 pb-16 sm:pb-20">
+
+  <div class="absolute inset-0">
+    @for (img of images(); track $index) {
+      <img [src]="img" alt=""
+        class="absolute inset-0 h-full w-full object-cover object-center opacity-40 transition-opacity duration-1000 ease-in-out"
+        [class.opacity-40]="activeSlide() === $index"
+        [class.opacity-0]="activeSlide() !== $index" />
+    }
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/70 to-[#0a1628]/20"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto w-full max-w-7xl px-6">
+    @if (eyebrow()) {
+      <div class="flex items-center gap-3 mb-4">
+        <span class="h-px w-10 bg-teal-400"></span>
+        <span class="text-xs font-bold tracking-[0.3em] text-teal-300 uppercase">{{ eyebrow() }}</span>
+      </div>
+    }
+
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-none tracking-tight">
+      {{ title() }}
+    </h1>
+
+    @if (description()) {
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">
+        {{ description() }}
+      </p>
+    }
+
+    @if (images().length > 1) {
+      <div class="mt-10 flex gap-2">
+        @for (img of images(); track $index) {
+          <button type="button" aria-label="Ir a la imagen {{ $index + 1 }}" (click)="goToSlide($index)"
+            class="h-1.5 rounded-full transition-all duration-300"
+            [class.w-6]="activeSlide() === $index" [class.bg-teal-400]="activeSlide() === $index"
+            [class.w-1.5]="activeSlide() !== $index" [class.bg-white/40]="activeSlide() !== $index">
+          </button>
+        }
+      </div>
+    }
+  </div>
+</section>

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-services',
@@ -7,20 +7,27 @@ import { Component, signal } from '@angular/core';
   styleUrl: './services.component.css',
 })
 export class Services {
-  protected expandedNum = signal<string | null>(null);
+  showHeading = input(true);
+  protected activeNum = signal('01');
 
-  protected toggle(num: string): void {
-    this.expandedNum.set(this.expandedNum() === num ? null : num);
+  protected selectTab(num: string): void {
+    this.activeNum.set(num);
+  }
+
+  protected get activeService() {
+    return this.services.find((s) => s.num === this.activeNum())!;
   }
 
   protected readonly services = [
     {
       num: '01',
       icon: '🛸',
+      tab: 'Fotogrametría Aérea',
       title: 'Fotogrametría Aérea de Alta Resolución',
       description: 'Áreas extensas, ortomosaicos, control volumétrico y monitoreo en tiempo real.',
       tech: 'DJI MATRICE 4E / MAVIC 3E',
       nuevo: false,
+      imagen: null,
       detail: {
         intro: 'Captura geoespacial en proyectos de gran envergadura, eliminando largas jornadas de topografía clásica en terreno complejo: menos costos operativos y menos riesgo humano.',
         aplicaciones: [
@@ -32,6 +39,7 @@ export class Services {
           nombre: 'Proyecto Vientos de Negritos',
           lugar: 'TALARA, PIURA · CORDILLERA SOLAR I S.A.C.',
           desc: 'Levantamiento fotogramétrico integral sobre 1,253.5 ha para energía renovable. Vuelos automatizados con seguimiento del terreno para optimizar la distribución de infraestructura eléctrica y obras civiles preliminares.',
+          imagen: null,
           stats: [
             { valor: '1.2+ ha', label: 'Superficie' },
             { valor: 'CMOS 4/3"', label: 'Ortomosaico' },
@@ -54,10 +62,12 @@ export class Services {
     {
       num: '02',
       icon: '🌊',
+      tab: 'Batimetría y Caudales',
       title: 'Batimetría y Medición de Caudales con ADCP',
       description: 'Caracterización de cuerpos de agua para proyectos de ingeniería.',
       tech: 'TECNOLOGÍA ADCP',
       nuevo: true,
+      imagen: null,
       detail: {
         intro: 'Levantamiento y análisis de cuerpos de agua mediante medición de profundidades y evaluación de caudales para proyectos de ingeniería, infraestructura y gestión de recursos hídricos.',
         aplicaciones: null,
@@ -76,12 +86,14 @@ export class Services {
     {
       num: '03',
       icon: '📡',
+      tab: 'Topografía LiDAR',
       title: 'Inspección & Topografía con Tecnología LiDAR',
       description: 'Líneas de alta tensión, modelado 3D y penetración de vegetación.',
       tech: 'DJI MATRICE 400 LIDAR',
       nuevo: true,
+      imagen: null,
       detail: {
-        intro: 'Escaneo láser dinámico que emite miles de pulsos por segundo: <strong class="text-white">atraviesa la vegetación densa</strong> y captura el terreno desnudo real, con una precisión que la fotogrametría pasiva no alcanza.',
+        intro: 'Escaneo láser dinámico que emite miles de pulsos por segundo: <strong class="text-slate-900">atraviesa la vegetación densa</strong> y captura el terreno desnudo real, con una precisión que la fotogrametría pasiva no alcanza.',
         aplicaciones: null,
         proyecto: null,
         indicadores: null,
@@ -91,16 +103,18 @@ export class Services {
           { icono: '🌊', titulo: 'Modelamiento hidráulico y cuencas', desc: 'Base de puntos para simulación de flujos e inundaciones.' },
           { icono: '🏠', titulo: 'Estructuras complejas y canteras', desc: 'Modelado 3D sin detener la operación del cliente.' },
         ],
-        ventaja: 'Filtrado avanzado de la nube de puntos + validación con <strong class="text-white">Trimble Business Center (TBC).</strong>',
+        ventaja: 'Filtrado avanzado de la nube de puntos + validación con <strong class="text-slate-900">Trimble Business Center (TBC).</strong>',
       },
     },
     {
       num: '04',
       icon: '🌿',
+      tab: 'Agricultura de Precisión',
       title: 'Agricultura de Precisión Multiespectral',
       description: 'Índices NDVI/NDRE, RGB, conteo de plantas y diagnóstico de estrés.',
       tech: 'MAVIC 3 MULTIESPECTRAL',
       nuevo: false,
+      imagen: null,
       detail: {
         intro: 'Capturamos la firma espectral del cultivo —información invisible al ojo— y la convertimos en mapas de diagnóstico listos para decidir.',
         aplicaciones: null,
@@ -140,17 +154,20 @@ export class Services {
     {
       num: '05',
       icon: '📍',
+      tab: 'Geodesia Oficial',
       title: 'Geodesia Oficial y Certificación de Puntos de Control',
       description: 'Monumentación de puntos geodésicos de órdenes "B" y "C" certificados ante IGN.',
       tech: 'RECEPTORES GNSS',
       nuevo: false,
+      imagen: null,
       detail: {
-        intro: 'Establecimiento, posicionamiento y tramitación oficial de puntos de control vinculados a la <strong class="text-white">Red Geodésica Geocéntrica Nacional (REGGEN)</strong> del IGN.',
+        intro: 'Establecimiento, posicionamiento y tramitación oficial de puntos de control vinculados a la <strong class="text-slate-900">Red Geodésica Geocéntrica Nacional (REGGEN)</strong> del IGN.',
         aplicaciones: null,
         proyecto: {
           nombre: 'Planta Solar Fotovoltaica Malvinas',
           lugar: 'CHAO, LA LIBERTAD · NOVUM SOLAR S.A.C.',
           desc: 'Levantamiento integral sobre +22 ha para energía renovable. Vuelos automatizados con control geodésico RTK y vinculación a red oficial IGN para generar curvas de nivel, modelos digitales del terreno y planos topográficos a escala 1:1000.',
+          imagen: null,
           stats: [
             { valor: '22+ ha', label: 'Superficie' },
             { valor: 'CMOS 4/3"', label: 'Ortomosaico' },
@@ -181,10 +198,12 @@ export class Services {
     {
       num: '06',
       icon: '✏️',
+      tab: 'Topografía de Detalle',
       title: 'Topografía de Detalle e Infraestructura',
       description: 'Planialtimetría, replanteos arquitectónicos, sanitarios y eléctricos.',
       tech: 'ESTACIÓN TOTAL / NIVEL',
       nuevo: false,
+      imagen: null,
       detail: {
         intro: 'Cuadrillas con escáner láser 3D, estación total y nivel diferencial donde el sensor aéreo encuentra límites y se exige precisión milimétrica.',
         aplicaciones: null,
@@ -215,9 +234,9 @@ export class Services {
       },
     },
     {
-      num: '07', icon: '⊕', title: 'Otros: Alquiler y Capacitación',
+      num: '07', icon: '⊕', tab: 'Alquiler y Capacitación', title: 'Otros: Alquiler y Capacitación',
       description: 'Formación especializada y alquiler de equipos topográficos.',
-      tech: 'FLOTA CERTIFICADA', nuevo: false, detail: null,
+      tech: 'FLOTA CERTIFICADA', nuevo: false, detail: null, imagen: null,
     },
   ];
 }

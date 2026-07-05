@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { Services } from '../../home/sections/services/services.component';
+import { PageHeader } from '../../../shared/page-header/page-header.component';
 
 @Component({
   selector: 'app-services-page',
-  imports: [RouterLink, Services],
+  imports: [Services, PageHeader],
   templateUrl: './services-page.component.html',
   styleUrl: './services-page.component.css',
 })

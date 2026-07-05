@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { About } from '../../home/sections/about/about.component';
+import { PageHeader } from '../../../shared/page-header/page-header.component';
 
 @Component({
   selector: 'app-about-page',
-  imports: [RouterLink, About],
+  imports: [About, PageHeader],
   templateUrl: './about-page.component.html',
   styleUrl: './about-page.component.css',
 })

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-team',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './team.component.css',
 })
 export class Team {
+  showHeading = input(true);
   protected readonly team = [
     {
       name: 'Ing. Brayam Gómez Zapana',
