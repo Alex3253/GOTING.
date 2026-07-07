@@ -91,7 +91,7 @@ export class Services {
       description: 'Líneas de alta tensión, modelado 3D y penetración de vegetación.',
       tech: 'DJI MATRICE 400 LIDAR',
       nuevo: true,
-      imagen: null,
+      imagen: '/TopografíaLiDAR.jpg',
       detail: {
         intro: 'Escaneo láser dinámico que emite miles de pulsos por segundo: <strong class="text-slate-900">atraviesa la vegetación densa</strong> y captura el terreno desnudo real, con una precisión que la fotogrametría pasiva no alcanza.',
         aplicaciones: null,
@@ -114,7 +114,7 @@ export class Services {
       description: 'Índices NDVI/NDRE, RGB, conteo de plantas y diagnóstico de estrés.',
       tech: 'MAVIC 3 MULTIESPECTRAL',
       nuevo: false,
-      imagen: null,
+      imagen: '/AgriculturaP.jpg',
       detail: {
         intro: 'Capturamos la firma espectral del cultivo —información invisible al ojo— y la convertimos en mapas de diagnóstico listos para decidir.',
         aplicaciones: null,
@@ -128,19 +128,19 @@ export class Services {
             num: '01',
             titulo: 'Captura espectral',
             desc: 'Vuelo con bandas Green, Red, Red Edge y NIR + calibración radiométrica en campo.',
-            imagen: null,
+            imagen: '/captura.png',
           },
           {
             num: '02',
             titulo: 'Procesamiento',
             desc: 'Alineación y corrección radiométrica; aísla atmósfera e iluminación.',
-            imagen: null,
+            imagen: '/procesamiento.png',
           },
           {
             num: '03',
             titulo: 'Análisis',
             desc: 'Mapas e indicadores listos para la gestión del cultivo.',
-            imagen: null,
+            imagen: '/analisis.png',
           },
         ],
         indicadoresEntregables: [
@@ -159,7 +159,7 @@ export class Services {
       description: 'Monumentación de puntos geodésicos de órdenes "B" y "C" certificados ante IGN.',
       tech: 'RECEPTORES GNSS',
       nuevo: false,
-      imagen: null,
+      imagen: '/GeodesiaOficial.png',
       detail: {
         intro: 'Establecimiento, posicionamiento y tramitación oficial de puntos de control vinculados a la <strong class="text-slate-900">Red Geodésica Geocéntrica Nacional (REGGEN)</strong> del IGN.',
         aplicaciones: null,
@@ -203,7 +203,7 @@ export class Services {
       description: 'Planialtimetría, replanteos arquitectónicos, sanitarios y eléctricos.',
       tech: 'ESTACIÓN TOTAL / NIVEL',
       nuevo: false,
-      imagen: null,
+      imagen: '/TopografiaDetalle.jpg',
       detail: {
         intro: 'Cuadrillas con escáner láser 3D, estación total y nivel diferencial donde el sensor aéreo encuentra límites y se exige precisión milimétrica.',
         aplicaciones: null,
