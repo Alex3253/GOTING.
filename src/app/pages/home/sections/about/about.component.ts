@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,6 +9,15 @@ import { RouterLink } from '@angular/router';
 })
 export class About {
   showHeading = input(true);
+  protected previewImage = signal<string | null>(null);
+
+  protected openPreview(src: string | null): void {
+    this.previewImage.set(src);
+  }
+
+  protected closePreview(): void {
+    this.previewImage.set(null);
+  }
 
   protected readonly misionVision = [
     {

@@ -9,9 +9,18 @@ import { Component, input, signal } from '@angular/core';
 export class Services {
   showHeading = input(true);
   protected activeNum = signal('01');
+  protected previewImage = signal<string | null>(null);
 
   protected selectTab(num: string): void {
     this.activeNum.set(num);
+  }
+
+  protected openPreview(src: string | null): void {
+    this.previewImage.set(src);
+  }
+
+  protected closePreview(): void {
+    this.previewImage.set(null);
   }
 
   protected get activeService() {
@@ -26,7 +35,11 @@ export class Services {
       description: 'Áreas extensas, ortomosaicos, control volumétrico y monitoreo en tiempo real.',
       tech: 'DJI MATRICE 4E / MAVIC 3E',
       nuevo: false,
-      imagen: null,
+      imagen: '/servicios/01-servicios.png',
+      cumplimiento: {
+        titulo: 'Cumplimiento Normativo Garantizado',
+        mensaje: 'Bajo los protocolos de la Autoridad Nacional del Agua (ANA) y estándares hidrográficos internacionales (IHO), entregamos reportes válidos para estudios de disponibilidad hídrica y licencias de uso de agua.',
+      },
       detail: {
         intro: 'Captura geoespacial en proyectos de gran envergadura, eliminando largas jornadas de topografía clásica en terreno complejo: menos costos operativos y menos riesgo humano.',
         aplicaciones: [
@@ -38,7 +51,7 @@ export class Services {
           nombre: 'Proyecto Vientos de Negritos',
           lugar: 'TALARA, PIURA · CORDILLERA SOLAR I S.A.C.',
           desc: 'Levantamiento fotogramétrico integral sobre 1,253.5 ha para energía renovable. Vuelos automatizados con seguimiento del terreno para optimizar la distribución de infraestructura eléctrica y obras civiles preliminares.',
-          imagen: null,
+          imagen: '/servicios/07-negritos.png',
           stats: [
             { valor: '1.2+ ha', label: 'Superficie' },
             { valor: 'CMOS 4/3"', label: 'Ortomosaico' },
@@ -66,6 +79,10 @@ export class Services {
       tech: 'TECNOLOGÍA ADCP',
       nuevo: true,
       imagen: '/Batimetría.jpeg',
+      cumplimiento: {
+        titulo: 'Cumplimiento Normativo Garantizado',
+        mensaje: 'Bajo los protocolos de la Autoridad Nacional del Agua (ANA) y estándares hidrográficos internacionales (IHO), entregamos reportes válidos para estudios de disponibilidad hídrica y licencias de uso de agua.',
+      },
       detail: {
         intro: 'Levantamiento y análisis de cuerpos de agua mediante medición de profundidades y evaluación de caudales para proyectos de ingeniería, infraestructura y gestión de recursos hídricos.',
         aplicaciones: null,
@@ -89,8 +106,12 @@ export class Services {
       tech: 'DJI MATRICE 400 LIDAR',
       nuevo: true,
       imagen: '/TopografíaLiDAR.jpg',
+      cumplimiento: {
+        titulo: 'Cumplimiento Normativo Garantizado',
+        mensaje: 'Operaciones UAS bajo la normativa RAP 101 de la Dirección General de Aeronáutica Civil (DGAC), garantizando vuelos seguros y autorizados sobre infraestructura crítica.',
+      },
       detail: {
-        intro: 'Escaneo láser dinámico que emite miles de pulsos por segundo: <strong class="text-slate-900">atraviesa la vegetación densa</strong> y captura el terreno desnudo real, con una precisión que la fotogrametría pasiva no alcanza.',
+        intro: 'Escaneo láser dinámico que emite miles de pulsos por segundo: atraviesa la vegetación densa y captura el terreno desnudo real, con una precisión que la fotogrametría pasiva no alcanza.',
         aplicaciones: null,
         proyecto: null,
         indicadores: null,
@@ -100,7 +121,7 @@ export class Services {
           { titulo: 'Modelamiento hidráulico y cuencas', desc: 'Base de puntos para simulación de flujos e inundaciones.' },
           { titulo: 'Estructuras complejas y canteras', desc: 'Modelado 3D sin detener la operación del cliente.' },
         ],
-        ventaja: 'Filtrado avanzado de la nube de puntos + validación con <strong class="text-slate-900">Trimble Business Center (TBC).</strong>',
+        ventaja: 'Filtrado avanzado de la nube de puntos + validación con Trimble Business Center (TBC).',
       },
     },
     {
@@ -111,6 +132,7 @@ export class Services {
       tech: 'MAVIC 3 MULTIESPECTRAL',
       nuevo: false,
       imagen: '/AgriculturaP.jpg',
+      cumplimiento: null,
       detail: {
         intro: 'Capturamos la firma espectral del cultivo —información invisible al ojo— y la convertimos en mapas de diagnóstico listos para decidir.',
         aplicaciones: null,
@@ -154,9 +176,13 @@ export class Services {
       description: 'Monumentación de puntos geodésicos de órdenes "B" y "C" certificados ante IGN.',
       tech: 'RECEPTORES GNSS',
       nuevo: false,
-      imagen: '/GeodesiaOficial.png',
+      imagen: '/servicios/06-geodesia.png',
+      cumplimiento: {
+        titulo: 'Cumplimiento Normativo Garantizado',
+        mensaje: 'Puntos geodésicos certificados ante el Instituto Geográfico Nacional (IGN), vinculados a la Red Geodésica Geocéntrica Nacional (REGGEN) y válidos para trámites ante SUNARP.',
+      },
       detail: {
-        intro: 'Establecimiento, posicionamiento y tramitación oficial de puntos de control vinculados a la <strong class="text-slate-900">Red Geodésica Geocéntrica Nacional (REGGEN)</strong> del IGN.',
+        intro: 'Establecimiento, posicionamiento y tramitación oficial de puntos de control vinculados a la Red Geodésica Geocéntrica Nacional (REGGEN) del IGN.',
         aplicaciones: null,
         proyecto: {
           nombre: 'Planta Solar Fotovoltaica Malvinas',
@@ -197,7 +223,11 @@ export class Services {
       description: 'Planialtimetría, replanteos arquitectónicos, sanitarios y eléctricos.',
       tech: 'ESTACIÓN TOTAL / NIVEL',
       nuevo: false,
-      imagen: '/TopografiaDetalle.jpg',
+      imagen: '/servicios/09-triangulacion.png',
+      cumplimiento: {
+        titulo: 'Cumplimiento Normativo Garantizado',
+        mensaje: 'Bajo la NTC-001-2015 y la Ley N.° 30340. Generamos planos compatibles con los procedimientos de SUNARP, Gobiernos Regionales y Municipalidades.',
+      },
       detail: {
         intro: 'Cuadrillas con escáner láser 3D, estación total y nivel diferencial donde el sensor aéreo encuentra límites y se exige precisión milimétrica.',
         aplicaciones: null,
@@ -230,7 +260,7 @@ export class Services {
     {
       num: '07', tab: 'Alquiler y Capacitación', title: 'Otros: Alquiler y Capacitación',
       description: 'Formación especializada y alquiler de equipos topográficos.',
-      tech: 'FLOTA CERTIFICADA', nuevo: false, detail: null, imagen: null,
+      tech: 'FLOTA CERTIFICADA', nuevo: false, detail: null, imagen: '/servicios/08-capacitacion.png', cumplimiento: null,
     },
   ];
 }

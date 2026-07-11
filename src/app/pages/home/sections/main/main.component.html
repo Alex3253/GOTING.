@@ -3,12 +3,15 @@
   <div class="absolute inset-0">
     @for (img of heroImages; track img.src) {
       <img [src]="img.src" alt=""
-        class="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out"
+        class="absolute inset-0 h-full w-full object-cover saturate-[0.9] transition-opacity duration-1000 ease-in-out"
         [class]="img.position"
-        [class.opacity-90]="activeSlide() === $index"
+        [class.opacity-100]="activeSlide() === $index"
         [class.opacity-0]="activeSlide() !== $index" />
     }
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0a1628]/45 via-[#0a1628]/20 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0a1628]/65 via-[#0a1628]/35 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628]/55 via-transparent to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-teal-500/20 via-transparent to-transparent mix-blend-overlay"></div>
+    <div class="absolute inset-0 bg-[#0a1628]/15 mix-blend-color"></div>
   </div>
 
   <div class="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
@@ -20,14 +23,14 @@
     }
   </div>
 
-  <div class="relative z-10 mx-auto w-full max-w-7xl flex-1 px-6 pt-28 pb-16 flex flex-col justify-center">
+  <div class="relative z-10 mx-auto w-full max-w-7xl flex-1 px-6 pt-16 pb-16 flex flex-col justify-center">
 
-    <div class="reveal flex items-center gap-3 mb-8">
+    <div class="reveal flex items-center gap-3 mb-2">
       <span class="h-px w-10 bg-teal-400"></span>
       <span class="text-xs font-bold tracking-[0.3em] text-teal-300 uppercase">Ingeniería Civil de Excelencia</span>
     </div>
 
-    <h1 class="reveal reveal-d1 text-5xl sm:text-7xl lg:text-[6.5rem] font-black leading-[0.95] text-white tracking-tight">
+    <h1 class="reveal reveal-d1 max-w-3xl text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] text-white tracking-tight">
       Ingeniería<br />
       <span class="text-teal-400">especializada</span><br />
       <span class="text-slate-300">y Geoespacial</span>
